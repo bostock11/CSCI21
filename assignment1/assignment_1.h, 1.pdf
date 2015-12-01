@@ -1,0 +1,105 @@
+/*
+ * Name        : Assignment 1
+ * Author      : Anthony Bostock
+ * Description : Exercises 1-6
+ * Sources     : 
+ */
+
+#include "assignment_1.h"
+#include <iostream>
+#include <string>
+ 
+// Write Function Definitions Here (What goes below main)
+
+using std::cout;
+using std::endl;
+using std::string;
+
+//Function 1: Count Characters
+void CountCharacters(string word , int &n1, int &n2) { 
+
+  	for (unsigned int i=0; i < word.length(); i++){
+
+
+  		if(isalpha(word.at(i))) { 
+  			n1 += 1;
+  		}
+
+  		else if (isdigit(word.at(i))) {
+  			n2 += 1;
+  		}
+
+}
+}
+
+//Fucntion 2: UpAndDown
+string UpAndDown(string word) {
+	for (int i = 0; i < word.size(); i++) {
+
+	  if (i%2) {
+	  	word.at(i) = tolower(word.at(i));
+
+	  }
+      
+      else {
+
+		 word.at(i) = toupper(word.at(i));
+	}
+}
+	return word;
+}
+
+ //Function 3: CountWords
+int CountWords(string words) {
+	for (int i = 0; i < word; i++) {
+
+		stringstream ss()
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+//Function 5: Find min value
+int FindMinValue(int array[], unsigned int size) {
+	
+	int temp = array[0];
+
+	for(int i=1;i<size;i--) {
+		if (array[i]<temp)
+			temp=array[i];
+	}
+  return temp;
+}
+
+//Function 6: Find max value
+int FindMaxValue(int array[], unsigned int size) {
+
+	int temp = array[0];
+	
+
+	for(int i=1;i<size;i++) {
+		if (array[i]>temp) 
+			temp=array[i];
+	}
+  return temp;
+}
+
+
+
+
+
+
+
+

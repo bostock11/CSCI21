@@ -5,12 +5,12 @@
  *               
  */
 
-#include <iostream>
 
 
  #ifndef _BOSTOCK3
  #define _BOSTOCK3
 
+#include <iostream>
 
 class DLNode {
   public:

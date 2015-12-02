@@ -5,7 +5,8 @@
  *               
  */
 
-  #include "dl_node.h"
+  #include "dl_node.h" 
+  #include "dl_list.h"
 
     DLList::DLList() {
   	  head = NULL;
@@ -21,23 +22,46 @@
 
   	//Member functions
 
-  	int DLList::GetSize() {
+  	int DLList::GetSize() const {
   	  return size;
   	}
 
   	void DLList::PushFront(int add) {
+      if (head == NULL || tail == NULL) {
+        DLNode* temp = new DLNode;
+        temp->SetContents(add);
 
-  		if (head == NULL) { 
-  			cout << list is empty << endl;
-  		} else {
-  			head = add;
-  			tail = add;
-  			DLNode* add;
-  		}
+        head = temp;
+        tail = temp;
 
+        size += 1;
+      } else {
+          DLNode* temp = new DLNode;
+          temp->SetContents(add);
+          temp->SetNext(head);
+          head->SetPrevious(temp);
+          head = temp;
+          size += 1;
+      }
   	}
 
-  	void DLList::PushBack(int){
+  	void DLList::PushBack(int add){
+      if (head == NULL || tail == NULL) {
+        DLNode* temp = new DLNode;
+        temp->SetContents(add);
+
+        head = temp;
+        tail = temp;
+
+        size += 1;
+      } else {  
+          DLNode* temp = new DLNode;
+          temp->SetContents(add);
+          temp->SetNext(tail);
+          temp->SetPrevious(temp);
+          tail = temp;
+          size += 1;
+}
 
   	}
 
@@ -65,10 +89,28 @@
 
  	}
 
- 	bool DLList::Exits(int){
+ 	bool DLList::Exists(int value){
+    for (int i = 0; i < 999; i++) {
+      if (i == value){
+        return true;
+      } else {
+      return false;
+    }
+    }
 
  	}
 
  	void DLList::Clear(){
 
  	}
+
+  string DLList::ToStringForwards(){
+    string what = "fuck";
+    return what;
+
+  }
+
+  string DLList::ToStringBackwards(){
+    string what = "fuck";
+    return what;
+  }

@@ -6,13 +6,19 @@
  */
 
 
-#include <iostream>
-
+ 
 
 
 
  #ifndef _BOSTOCK4
  #define _BOSTOCK4
+
+#include <iostream>
+#include <string>
+ using std::string;
+
+
+#include "dl_node.h"
 
 class DLList {
   public:
@@ -22,7 +28,7 @@ class DLList {
 
   	//Member functions
 
-  	void GetSize();
+  	int GetSize() const;
 
   	void PushFront(int);
 
@@ -40,9 +46,13 @@ class DLList {
 
  	void RemoveAll(int);
 
- 	bool Exits(int);
+ 	bool Exists(int);
 
  	void Clear();
+
+  string ToStringForwards();
+
+  string ToStringBackwards();
 
 
   private:

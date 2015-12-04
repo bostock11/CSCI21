@@ -65,12 +65,22 @@
 
   	}
 
-  	int DLList::GetFront() const{
-
+  	int DLList::GetFront() const {
+      if (head == NULL) {
+        cerr << "List Empty" << endl;
+        return 0;
+      } else {
+        return head->GetContents();
+      }
   	}
 
-  	int DLList::GetBack() const{
-
+  	int DLList::GetBack() const {
+      if (tail == NULL) {
+        cerr << "List Empty" << endl;
+        return 0;
+      } else {
+        return tail->GetContents();
+      }
   	}
  	
  	void DLList::PopFront(){

@@ -6,16 +6,14 @@
  */
 
 
- 
-
-
-
  #ifndef _BOSTOCK4
  #define _BOSTOCK4
 
 #include <iostream>
 #include <string>
  using std::string;
+ using std::endl;
+ using std::cerr;
 
 
 #include "dl_node.h"

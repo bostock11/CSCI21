@@ -11,9 +11,11 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
  using std::string;
  using std::endl;
  using std::cerr;
+ using std::stringstream;
 
 
 #include "dl_node.h"

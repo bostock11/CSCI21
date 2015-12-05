@@ -15,7 +15,7 @@
 
     }
 
-	DLList::~DLList() {
+	  DLList::~DLList() {
 	  	Clear();
 
 	 }
@@ -45,23 +45,22 @@
       }
   	}
 
-  	void DLList::PushBack(int add){
+  	void DLList::PushBack(int add) {
       if (head == NULL || tail == NULL) {
         DLNode* temp = new DLNode;
         temp->SetContents(add);
-
         head = temp;
         tail = temp;
 
-        size += 1;
+        size++;
       } else {  
           DLNode* temp = new DLNode;
           temp->SetContents(add);
-          temp->SetNext(tail);
-          temp->SetPrevious(temp);
+          tail->SetNext(temp);
+          temp->SetPrevious(tail);
           tail = temp;
-          size += 1;
-}
+          size++;
+        }
 
   	}
 
@@ -84,43 +83,148 @@
   	}
  	
  	void DLList::PopFront(){
+    if (head == NULL) {
+      cerr << "List Empty" << endl;
+    } else {
+      DLNode* temp = head;
+      if (head == tail) {
+        tail = NULL;
+        head = NULL;
+      } else {
+        head = head->GetNext();
+      }
+      if (head != NULL) {
+        head->SetPrevious(NULL);
+      }
+      delete temp;
+      size--;
+    }
 
  	}
 
  	void DLList::PopBack(){
+    if (head == NULL) {
+      cerr << "List Empty" << endl;
+    } else {
+      DLNode* temp = tail;
+      if (head == tail) {
+        tail = NULL;
+        head = NULL;
+      } else {
+        tail = tail->GetPrevious();
+      }
+      if (tail != NULL) {
+          tail->SetNext(NULL);
+      }
+      delete temp;
+      size--;
+    }
 
  	}
 
- 	void DLList::RemoveFirst(int){
-
+ 	void DLList::RemoveFirst(int value){
+    DLNode* temp = head;
+    bool found = false;
+    while((temp != NULL) && (!found)) {
+      if (temp->GetContents() == value) {
+        if (temp->GetNext() != NULL) {
+          temp->GetNext()->SetPrevious(temp->GetPrevious());
+        }
+        if (temp->GetPrevious() != NULL) {
+          temp->GetPrevious()->SetNext(temp->GetNext());
+        }
+        if (temp == head){
+          head = temp->GetNext();
+        } else if (temp == tail) {
+          tail = temp->GetPrevious();
+        }
+        
+        delete temp;
+        temp = NULL;
+        size--;
+        found = true;
+      }
+      if(temp != NULL) {
+        temp = temp->GetNext();
+      }
+    }
+    if (!found) {
+        cerr << "Not Found" << endl;
+    }
  	}
 
- 	void DLList::RemoveAll(int){
-
+  void DLList::RemoveAll(int value) {
+    bool removed = false;
+    int count = size;
+    do {
+      count = size;
+      removed = false;
+      
+      RemoveFirst(value);
+      
+      if (count != size) {
+        removed = true;
+      }
+    } while (removed);
  	}
 
  	bool DLList::Exists(int value){
-    for (int i = 0; i < 999; i++) {
-      if (i == value){
+    DLNode* temp = head;
+    while (temp != NULL) {
+      if (temp->GetContents() == value) {
         return true;
-      } else {
-      return false;
-    }
+      }
+      temp = temp->GetNext();
     }
 
+    return false;
  	}
 
  	void DLList::Clear(){
-
+    DLNode* temp = head;
+    while(temp != NULL){
+      head = head->GetNext();
+      delete temp;
+      temp = head;
+    }
+    size = 0;
  	}
 
   string DLList::ToStringForwards(){
-    string what = "fuck";
-    return what;
+    
+    if (head == NULL){
+      cerr << "List Empty" << endl;
+      return "";
+    } 
+    stringstream ss;
+    DLNode* temp = head;
+    while(temp != NULL) {
+      ss << temp->GetContents();
+      if (temp != tail){
+      ss << ", ";
+    }
+      temp = temp->GetNext();
+    }
 
+    return ss.str();
+  
   }
 
   string DLList::ToStringBackwards(){
-    string what = "fuck";
-    return what;
-  }
+
+    if (head == NULL){
+      cerr << "List Empty" << endl;
+      return "";
+    }
+    stringstream ss;
+    DLNode* temp = tail;
+    while(temp != NULL) {
+      ss << temp->GetContents();
+      if (temp != head){
+        ss << ", ";
+      } 
+      temp = temp->GetPrevious();
+    }
+    return ss.str();
+    
+}

@@ -1,0 +1,19 @@
+Complete the two functions given in lab_2.cpp
+You will need to add a Global Constant to lab_2.h
+
+You may need to do a little research on <cmath>
+for the sin() and cos() functions
+
+A Makefile has been included with this exercise.
+Type make to see available options
+
+Please note you need to follow programming style guidelines for this exercise.
+
+Labs having the following will lose 10% per category:
+- Code (such as output statements) not explicitly required
+- Bad Programming Style (Variable Names, Formatting, Fails Style Check)
+
+Labs that DO NOT COMPILE will receive a ZERO!
+
+NOTE: Labs that compile with warnings will be treated as if they did not
+      compile. (i.e. they will receive a zero)

@@ -1,6 +1,6 @@
 /*
  * Name        : lab_2.h
- * Author      : FILL IN
+ * Author      : Anthony Bostock
  * Description : Using Arithmetic to finish the functions MakeChange() and
  *               LaunchHumanCannonball()
  * Sources     :

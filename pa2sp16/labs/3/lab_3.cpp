@@ -1,6 +1,6 @@
 /*
  * Name        : lab_3.cpp
- * Author      : FILL IN
+ * Author      : Anthony Bostock
  * Description : Using branching statements, looping statements and string and
  *               character functions complete the functions
  */
@@ -17,7 +17,7 @@
  * -item: "porridge", number: 3, return "This porridge is just right"
  * -item: "chair", number: 1, return "This chair is too big"
  * -item: "chair", number: 2, return "This chair is too small"
- * -item: "chair", number: 3, return "This chair is just right"
+ i* -item: "chair", number: 3, return "This chair is just right"
  * -item: "bed", number: 1, return "This bed is too hard"
  * -item: "bed", number: 2, return "This bed is too soft"
  * -item: "bed", number: 3, return "This bed is just right"
@@ -29,7 +29,37 @@
  * @return string - The output string specified in the documentation above
  */
 string Goldilocks(string item, int number) {
-  // CODE HERE
+ 
+  if(item == "porridge" && number == 1) {
+    return "This porridge is too hot";
+    }
+  else if(item == "porridge" && number == 2) {
+    return "This porridge is too cold";
+  }
+    else {
+    return "This porridge is just right";
+  }
+
+     if(item == "chair" && number == 1) {
+    return "This chair is too big";
+    }
+  else if(item == "" && number == 2) {
+    return "This chair is too small";
+  }
+    else {
+    return "This chair is just right";
+  }
+
+    if(item == "bed" && number == 1) {
+    return "This bed is too hard";
+    }
+  else if(item == "bed" && number == 2) {
+    return "This bed is too soft";
+  }
+    else {
+    return "This bed is just right";
+  }
+
 }
 
 /*
@@ -48,6 +78,44 @@ string Goldilocks(string item, int number) {
 int RockScissorPaper(char player_one, char player_two) {
   // YOU MUST USE A SWITCH IN THIS FUNCTION
   // CODE HERE
+	  switch(tolower(player_one)) {
+    case 'r':
+    switch(toupper(player_two))
+    case 'r':
+    return 3;
+  }
+  switch(tolower(player_one)) {
+    case 's':
+    switch(toupper(player_two))
+    case 'r':
+    return 2;
+  }
+  switch(tolower(player_one)) {
+    case 'p':
+    switch(toupper(player_two))
+    case 'r':
+    return 1;
+  }
+  switch(tolower(player_one)) {
+    case 'r':
+    switch(toupper(player_two))
+    case 's':
+    return 1;
+  }
+  switch(tolower(player_one)) {
+    case 'p':
+    switch(toupper(player_two))
+    case 'p':
+    return 3;
+  }
+  switch(tolower(player_one)) {
+    case 'r':
+    switch(toupper(player_two))
+    case 'p':
+    return 2;
+  }
+
+	return 0;
 }
 
 /*
@@ -57,6 +125,10 @@ int RockScissorPaper(char player_one, char player_two) {
  */
 string ToLower(string input) {
   // CODE HERE
+  for (unsigned int i = 0; i < input.length(); i++) {
+    input.at(i) = tolower(input.at(i));
+  }
+  return input;
 }
 
 /*
@@ -66,6 +138,10 @@ string ToLower(string input) {
  */
 string ToUpper(string input) {
   // CODE HERE
+	for (unsigned int i = 0; i <input.length(); i++) {
+		input.at(i) = toupper(input.at(i));
+	}
+	return input;
 }
 
 /*
@@ -79,5 +155,12 @@ string ToUpper(string input) {
  *                outside the range of the string. The null character is '\0'
  */
 char GetCharacter(string input, unsigned int char_index) {
-  // CODE HERE
+	for (unsigned int i = 0; i < input.length(); i++) {
+		if (char_index > input.length()){
+			return '\0';
+		} else {
+			return char_index;
+		}
+	}
+	return 'c';
 }

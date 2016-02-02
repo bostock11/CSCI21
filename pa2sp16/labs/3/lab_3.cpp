@@ -76,46 +76,9 @@ string Goldilocks(string item, int number) {
  *               0 if invalud inputs
  */
 int RockScissorPaper(char player_one, char player_two) {
-  // YOU MUST USE A SWITCH IN THIS FUNCTION
-  // CODE HERE
-	  switch(tolower(player_one)) {
-    case 'r':
-    switch(toupper(player_two))
-    case 'r':
-    return 3;
-  }
-  switch(tolower(player_one)) {
-    case 's':
-    switch(toupper(player_two))
-    case 'r':
-    return 2;
-  }
-  switch(tolower(player_one)) {
-    case 'p':
-    switch(toupper(player_two))
-    case 'r':
-    return 1;
-  }
-  switch(tolower(player_one)) {
-    case 'r':
-    switch(toupper(player_two))
-    case 's':
-    return 1;
-  }
-  switch(tolower(player_one)) {
-    case 'p':
-    switch(toupper(player_two))
-    case 'p':
-    return 3;
-  }
-  switch(tolower(player_one)) {
-    case 'r':
-    switch(toupper(player_two))
-    case 'p':
-    return 2;
-  }
-
-	return 0;
+	switch(player_one) {
+		case 'R' :
+			
 }
 
 /*
@@ -155,12 +118,10 @@ string ToUpper(string input) {
  *                outside the range of the string. The null character is '\0'
  */
 char GetCharacter(string input, unsigned int char_index) {
-	for (unsigned int i = 0; i < input.length(); i++) {
-		if (char_index > input.length()){
-			return '\0';
-		} else {
-			return char_index;
-		}
-	}
-	return 'c';
+	if (char_index > input.length()) {
+		return '\0';
+} else {
+		
+		return input.at(char_index);
+}
 }

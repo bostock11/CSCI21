@@ -63,23 +63,41 @@ string Goldilocks(string item, int number) {
 }
 
 /*
- * Compute the outcome of a round of a rock-scissor-paper game. Lowercase or
- * uppercase values for player_one and player_two arguments are acceptable.
- * Possible inputs: 'R' rock, 'S' scissor, 'P' paper
- * Conditions
- * -rocks beats scissors
- * -scissors beats paper
- * -paper beats rock
- * @param char player_one - Represents player one's "play" ('R', 'S', or 'P')
- * @param char player_two - Represents player two's "play" ('R', 'S', or 'P')
- * @return int - 1 if player one wins, 2 if player two wins, 3 on a draw,
- *               0 if invalud inputs
- */
-int RockScissorPaper(char player_one, char player_two) {
-	switch(player_one) {
-		case 'R' :
-			
+ * Compute the outcome of a round of a rock-scissor-paper game. Lowercase or uppercase values for player_one and player_two arguments are acceptable.
+*/
+int RockScissorPaper (char player_one, char player_two) {
+  switch(tolower(player_one)) {
+    case 'r':
+      if (tolower(player_two) == 's') {
+        return 1;
+       } else if (tolower(player_two) == 'p') {
+         return 2;
+       } else if (tolower(player_two) == 'r') {
+         return 3;
+       }
+    
+    case 'p':
+      if (tolower(player_two) == 'r') {
+        return 1;
+      } else if (tolower(player_two) == 's') {
+        return 2;
+      } else if (tolower(player_two) == 'p') {
+        return 3;
+      }
+
+    case 's':
+      if (tolower(player_two) == 'p') {
+        return 1;
+      } else if (tolower(player_two) == 'r') {
+        return 2;
+      } else if (tolower(player_two) == 's') {
+        return 3;
+      }
+
+ }
+  return 0;
 }
+
 
 /*
  * Return the input string with all characters converted to lowercase.

@@ -1,13 +1,13 @@
 /*
  * Name        : lab_5.h
- * Author      : FILL IN
+ * Author      : Anthony Bostock
  * Description : Practicing Functions. Use this file to write your
  *               Function Prototypes (what goes above main()).
  */
 
 #ifndef LAB_H
 #define LAB_H
-
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -22,7 +22,7 @@ using std::string;
  *
  * Displays "Hello world!" to stdout (cout) (no newline character after)
  */
-// CODE HERE (FUNCTION PROTOTYPE)
+void Hello();
 
 /*
  * Function Name: PrintMessage
@@ -31,7 +31,7 @@ using std::string;
  * @param const string& - The string to display to stdout
  */
 // CODE HERE (FUNCTION PROTOTYPE)
-
+void PrintMessage(const string);
 /*
  * Function Name: GetAnswer
  *
@@ -39,7 +39,7 @@ using std::string;
  * @return int - The value 42
  */
 // CODE HERE (FUNCTION PROTOTYPE)
-
+int GetAnswer();
 /*
  * Function Name: FindLarger
  *
@@ -50,7 +50,7 @@ using std::string;
  * @return int - The larger of the two values, or either one if they are equal
  */
 // CODE HERE (FUNCTION PROTOTYPE)
-
+int FindLarger(const int, const int);
 /*
  * Function Name: BuildMessage
  *
@@ -65,5 +65,8 @@ using std::string;
  *             - Defaults to false
  */
 // CODE HERE (FUNCTION PROTOTYPE)
+string BuildMessage(string str = "", bool lo = false);
+
+
 
 #endif
